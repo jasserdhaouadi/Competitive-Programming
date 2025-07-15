@@ -33,10 +33,7 @@ int main() {
         cin >> a >> b;
         auto low = lower_bound(v.begin(), v.end(), a);
         auto up = upper_bound(v.begin(), v.end(), b);
-        // cerr << "low: " << *low << '\n'; 
-        // cerr << "up: " << *up << '\n'; 
         cout << (up - v.begin()) - (low - v.begin()) << '\n';
-        // cerr << '\n';
     }
     return 0;
 }
