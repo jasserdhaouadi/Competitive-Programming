@@ -5,10 +5,6 @@
 typedef long long  ll;
 using namespace std;
  
-void setIO(string s){
-    freopen((s+".in").c_str(), "r", stdin);
-    freopen((s+".out").c_str(), "w", stdout);
-}
 void dbg(int* x){
     cerr << " = " << *x << " ";
 }
@@ -58,7 +54,6 @@ struct qu{
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    // setIO("countcross");
     int n;
     cin >> n;
     vector<ll> a(n);
