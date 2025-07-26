@@ -29,14 +29,13 @@ int main() {
     });
     int l = 0;
     int r = n - 1;
-    int indx_l = 1, indx_r = 1;
+    int indx_l = 1, indx_r = a[r].first;
     int ans = 0;
     while(r > l || (r == l && indx_r > indx_l)){
         int sum = a[r].second + a[l].second;
         ans = max(ans, sum);
-        if(++indx_r > a[r].first){
-            --r;
-            indx_r = 1;
+        if(--indx_r == 0){
+            indx_r = a[--r].first;
         }
         if(++indx_l > a[l].first){
             ++l;
@@ -44,5 +43,6 @@ int main() {
         }
     }
     cout << ans << '\n';
+    return 0;
     return 0;
 }
