@@ -36,7 +36,7 @@ int main() {
         for(int r=0; r<n; r++){
             for(int& i : fact[a[r]]){
                 if(i > m)
-                    continue;
+                    break;
                 if(++freq[i] == 1)
                     cnt++;
             }
@@ -44,7 +44,7 @@ int main() {
                 ans = min(ans, a[r] - a[l]);
                 for(int& i : fact[a[l]]){
                     if(i > m)
-                        continue;
+                        break;
                     if(--freq[i] == 0)
                         cnt--;
                 }
