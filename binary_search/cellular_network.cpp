@@ -1,16 +1,14 @@
 // Problem link: https://codeforces.com/contest/702/problem/C
 #include <bits/stdc++.h>
 
-#define ll long long
+typedef long long ll;
 using namespace std;
- 
-void setIO(string s){
-    freopen((s+".in").c_str(), "r", stdin);
-    freopen((s+".out").c_str(), "w", stdout);
+
+void setIO(string s) {
+    freopen((s + ".in").c_str(), "r", stdin);
+    freopen((s + ".out").c_str(), "w", stdout);
 }
-void dbg(int* x){
-    cerr << " = " << *x << " ";
-}
+void dbg(int* x) { cerr << " = " << *x << " "; }
 
 const ll INF = 1e9;
 
@@ -21,25 +19,25 @@ int main() {
     int n, m;
     cin >> n >> m;
     vector<int> c(n), t(m);
-    for(int& i : c){
+    for (int& i : c) {
         cin >> i;
     }
-    for(int& i : t){
+    for (int& i : t) {
         cin >> i;
     }
     int ans = 0;
-    for(int i=0; i<n; i++){
+    for (int i = 0; i < n; i++) {
         int up = (int)(lower_bound(t.begin(), t.end(), c[i]) - t.begin());
         int low = up - 1;
-        //low == t.begin()
-        if(up == 0){
+        // low == t.begin()
+        if (up == 0) {
             ans = max(ans, t[up] - c[i]);
-        //low == t.end()
-        }else if(up == m){
+            // low == t.end()
+        } else if (up == m) {
             ans = max(ans, c[i] - t[low]);
-        }else if(t[up] == c[i]){
+        } else if (t[up] == c[i]) {
             continue;
-        }else{
+        } else {
             int r = min(c[i] - t[low], t[up] - c[i]);
             ans = max(ans, r);
         }
